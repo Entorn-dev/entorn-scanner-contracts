@@ -6,6 +6,7 @@
     { "$ref": "#/$defs/ready" },
     { "$ref": "#/$defs/scanRequest" },
     { "$ref": "#/$defs/observation" },
+    { "$ref": "#/$defs/sourceOwnership" },
     { "$ref": "#/$defs/diagnostic" },
     { "$ref": "#/$defs/completed" }
   ],
@@ -82,6 +83,21 @@
                 { "$ref": "observation-bundle.schema.json#/$defs/relationshipObservation" }
               ]
             }
+          }
+        }
+      ]
+    },
+    "sourceOwnership": {
+      "allOf": [
+        { "$ref": "#/$defs/base" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["protocolVersion", "type", "ownership"],
+          "properties": {
+            "protocolVersion": true,
+            "type": { "const": "source-ownership" },
+            "ownership": { "$ref": "source-context.schema.json#/$defs/claim" }
           }
         }
       ]
