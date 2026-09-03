@@ -31,8 +31,8 @@
         ]
       }
     },
-    "diagnostics": { "type": "array", "items": { "$ref": "graph-snapshot.schema.json#/$defs/diagnostic" } },
-    "redactions": { "type": "array", "items": { "$ref": "graph-snapshot.schema.json#/$defs/redaction" } }
+    "diagnostics": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/diagnostic" } },
+    "redactions": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/redaction" } }
   },
   "$defs": {
     "candidate": {

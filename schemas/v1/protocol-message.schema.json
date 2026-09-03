@@ -97,7 +97,7 @@
           "properties": {
             "protocolVersion": true,
             "type": { "const": "source-ownership" },
-            "ownership": { "$ref": "source-context.schema.json#/$defs/claim" }
+            "ownership": { "$ref": "common.schema.json#/$defs/sourceOwnershipClaim" }
           }
         }
       ]
@@ -112,7 +112,7 @@
           "properties": {
             "protocolVersion": true,
             "type": { "const": "diagnostic" },
-            "diagnostic": { "$ref": "graph-snapshot.schema.json#/$defs/diagnostic" }
+            "diagnostic": { "$ref": "common.schema.json#/$defs/diagnostic" }
           }
         }
       ]

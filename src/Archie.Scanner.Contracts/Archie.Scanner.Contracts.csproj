@@ -1,0 +1,7 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <PackageId>Archie.Scanner.Contracts</PackageId>
+    <Description>Optional .NET binding for the language-neutral Archie scanner protocol.</Description>
+  </PropertyGroup>
+</Project>
