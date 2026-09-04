@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <PackageId>Entorn.Scanner.Contracts</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>Entorn</Authors>
+    <Description>Optional .NET binding for the language-neutral Entorn scanner protocol.</Description>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/Entorn-dev/entorn-scanner-contracts</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>entorn;scanner;protocol;architecture</PackageTags>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="../../README.md" Pack="true" PackagePath="/" />
+  </ItemGroup>
+</Project>

@@ -1,6 +1,6 @@
 using System.Text.Json;
 
-namespace Archie.Scanner.Contracts;
+namespace Entorn.Scanner.Contracts;
 
 public enum NodeKind
 {

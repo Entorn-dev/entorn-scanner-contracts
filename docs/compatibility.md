@@ -1,6 +1,6 @@
 # Scanner compatibility
 
-The JSON Schemas and conformance fixtures define compatibility. The optional `Archie.Scanner.Contracts` .NET package follows them and does not independently extend the wire contract.
+The JSON Schemas and conformance fixtures define compatibility. The optional `Entorn.Scanner.Contracts` .NET package follows them and does not independently extend the wire contract.
 
 ## Version rules
 
@@ -14,7 +14,7 @@ The JSON Schemas and conformance fixtures define compatibility. The optional `Ar
 
 A change is compatible within `scanner/v1` only when every previously valid document retains the same meaning and every supported implementation can safely ignore or consume the change under the existing schemas. Because current objects are closed, adding a field normally requires a new protocol version. Tightening a bound or validation rule that rejects previously valid output also requires a new version unless it only enforces an already documented runtime invariant.
 
-A new protocol version must ship with updated schemas, protocol documentation, valid and invalid fixtures, runner validation, and binding tests. Archie may support multiple versions during a migration, but each worker exchange uses one exact version. Catalog compatibility metadata will prevent installation or activation of unsupported scanner versions.
+A new protocol version must ship with updated schemas, protocol documentation, valid and invalid fixtures, runner validation, and binding tests. Entorn may support multiple versions during a migration, but each worker exchange uses one exact version. Catalog compatibility metadata will prevent installation or activation of unsupported scanner versions.
 
 ## Conformance
 

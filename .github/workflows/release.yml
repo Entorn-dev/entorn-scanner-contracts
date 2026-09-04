@@ -1,0 +1,44 @@
+name: Release
+
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment: release
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          global-json-file: global.json
+      - name: Derive version
+        id: version
+        shell: bash
+        run: |
+          version="${GITHUB_REF_NAME#v}"
+          [[ "$version" =~ ^[0-9]+\.[0-9]+\.[0-9]+([-.][0-9A-Za-z.-]+)?$ ]]
+          echo "value=$version" >> "$GITHUB_OUTPUT"
+      - run: dotnet restore --locked-mode
+      - run: dotnet test --no-restore --configuration Release
+      - name: Pack
+        run: dotnet pack src/Entorn.Scanner.Contracts/Entorn.Scanner.Contracts.csproj --no-restore --configuration Release --output artifacts -p:PackageVersion=${{ steps.version.outputs.value }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Entorn.Scanner.Contracts-${{ steps.version.outputs.value }}
+          path: artifacts/*.*nupkg
+          if-no-files-found: error
+      - name: NuGet login
+        uses: NuGet/login@v1
+        id: login
+        with:
+          user: ${{ vars.NUGET_USER }}
+      - name: Publish
+        run: dotnet nuget push artifacts/*.nupkg --api-key ${{ steps.login.outputs.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate

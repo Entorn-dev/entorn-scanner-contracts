@@ -1,4 +1,4 @@
-namespace Archie.Scanner.Contracts;
+namespace Entorn.Scanner.Contracts;
 
 public enum SourceOwnershipKind { Project, Module, Component, Deployable }
 

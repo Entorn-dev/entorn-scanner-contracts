@@ -1,7 +1,7 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace Archie.Scanner.Contracts;
+namespace Entorn.Scanner.Contracts;
 
 public sealed record ScannerPermissions(bool ReadRepository, bool Network, bool Environment);
 
